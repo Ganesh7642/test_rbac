@@ -3,17 +3,17 @@ template:
 
 entries:
   - role_name: FR_PROVISION_APP_TEST
-    owner: AAD_PROVISIONER
+    owner: PROVISION_ADMIN
     comment: "Functional role for Provision app service account for testing"
 
   - role_name: FR_GEMINI_ENT_DEVELOPER
-    owner: AAD_PROVISIONER
+    owner: PROVISION_ADMIN
     comment: "Gemini Enterprise developer functional role"
 
   - role_name: FR_GEMINI_ENT_DBT
-    owner: AAD_PROVISIONER
+    owner: PROVISION_ADMIN
     comment: "Gemini Enterprise dbt functional role"
 
   - role_name: FR_GEMINI_ENT_VALIDATOR
-    owner: AAD_PROVISIONER
+    owner: PROVISION_ADMIN
     comment: "Gemini Enterprise validator functional role"
