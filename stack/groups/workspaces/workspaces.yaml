@@ -1,6 +1,6 @@
 template:
   path: workspaces/workspaces.yaml
-
+ path: workspaces/workspaces.yaml
 entries: 
   # Keep DB/schema provisioning in Terraform.
   # Uncomment only if workspace DB/schema objects must be managed by Provision Tool.
