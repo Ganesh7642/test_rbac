@@ -2,7 +2,7 @@ name: Provision
 
 on:
   push:
-    branches: [ main, feature/* ]
+    branches: [ main, Feature/* ]
   pull_request:
     branches: [ main ]
 
