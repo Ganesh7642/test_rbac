@@ -4,12 +4,13 @@ databases:
     destroy: {{ destroy | default(false) }}
 
 schemas:
-  {% if schemas is truthy %}
-  {% for schema in schemas %}
-  {% if schema.name not in ['INFORMATION_SCHEMA', 'PUBLIC'] %}
+{% if schemas is truthy %}
+{% for schema in schemas %}
+{% if schema.name not in ['INFORMATION_SCHEMA', 'PUBLIC'] %}
   - database: {{ db }}
     name: {{ schema.name }}
     owner: SYSADMIN
     destroy: {{ destroy | default(false) }}
-  {% endfor %}
-  {% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
