@@ -1,0 +1,13 @@
+template:
+  path: snowflake_user_accounts.yaml
+
+defaults:
+  alterableOnly: true
+
+entries: []
+#  - user_name: USER_TEST
+#    default_warehouse: COMPUTE_WH
+#    default_role: FR_PROVISION_APP_TEST
+#    default_secondary_roles: ALL
+#    rsa_public_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7qjLh5n8sXy9ZtH+8v1z5mL7u9Xl6nP4V7Zl"
+#    disabled: false

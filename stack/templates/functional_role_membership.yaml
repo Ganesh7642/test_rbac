@@ -1,0 +1,24 @@
+# Template for functional-role membership:
+# - roleGrants: grants object roles into the functional role
+# - simpleGrants: grants per-privilege warehouse access (each privilege can be destroyed independently)
+
+{%if granted_roles is truthy or warehouse_roles is truthy %}
+roleGrants:
+  {% if granted_roles is truthy %}
+    {% for r in granted_roles %}
+    - name: {{ r.name }}
+      toRoles:
+        - {{ functional_role }}
+      destroy: {{ r.destroy | default(false) }}
+    {% endfor %}
+  {% endif %}
+
+  {% if warehouse_roles is truthy %}
+    {% for r in warehouse_roles %}
+    - name: {{ r.name }}
+      toRoles:
+        - {{ functional_role }}
+      destroy: {{ r.destroy | default(false) }}
+    {% endfor %}
+  {% endif %}
+{% endif %}

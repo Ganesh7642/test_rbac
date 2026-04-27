@@ -1,0 +1,9 @@
+template:
+  path: trust_center_user_membership.yaml
+
+entries:
+  - trust_center_role: TRUST_CENTER_ADMIN_ROLE
+    user_name: BALBIR_MATHARU
+
+  - trust_center_role: TRUST_CENTER_VIEWER_ROLE
+    user_name: GANESH_RAVISHANKAR

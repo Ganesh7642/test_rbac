@@ -1,0 +1,13 @@
+roles:
+  - name: {{ role_name }}
+
+roleGrants:
+  - name: {{ role_name }}
+    toRoles:
+      - SYSADMIN
+
+applicationRoleGrants:
+  - name: {{ trust_center_app_role }}
+    granteeType: ROLE
+    grantee:
+      - {{ role_name }}

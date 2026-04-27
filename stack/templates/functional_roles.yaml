@@ -1,0 +1,9 @@
+roles:
+  - name: {{ role_name }}
+    {% if owner is truthy %}
+    owner: {{ owner }}
+    {% endif %}
+    {% if comment is truthy %}
+    properties:
+      comment: "{{ comment }}"
+    {% endif %}

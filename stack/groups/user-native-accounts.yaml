@@ -1,0 +1,16 @@
+template:
+  path: snowflake_user_accounts.yaml
+
+defaults:
+  alterableOnly: false
+
+entries: []
+#  - user_name: USER_TEST
+#    login_name: USER_TEST
+#    display_name: USER_TEST
+#    user_type: PERSON
+#    comment: Native Snowflake User
+#    default_warehouse: COMPUTE_WH
+#    default_role: FR_PROVISION_APP_TEST
+#    default_secondary_roles: ALL
+#    disabled: false

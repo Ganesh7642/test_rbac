@@ -1,0 +1,57 @@
+
+roles:
+  - name: {{ role_name }}
+    {% if owner is truthy %}
+    owner: {{ owner }}
+    {% endif %}
+    {% if comment is truthy %}
+    properties:
+      comment: "{{ comment }}"
+    {% endif %}
+
+{% if warehouses is truthy %}
+simpleGrants:
+  {% for wh in warehouses %}
+    {% if wh.privileges is truthy %}
+      {% for priv in wh.privileges %}
+  - privilege: [{{ priv.name | lower }}]
+    objectType: warehouse
+    objectName: {{ wh.wh_name }}
+    roleName: {{ role_name }}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+warehouses:
+  {% for wh in warehouses %}
+  - name: {{ wh.wh_name }}
+    properties:
+      {% if wh.wh_type is truthy %}
+      warehouse_type: {{ wh.wh_type }}
+      {% endif %}
+      {% if wh.wh_size is truthy %}
+      warehouse_size: {{ wh.wh_size }}
+      {% endif %}
+      {% if wh.auto_suspend is truthy %}
+      auto_suspend: {{ wh.auto_suspend }}
+      {% endif %}
+      {% if wh.auto_resume is truthy %}
+      auto_resume: {{ wh.auto_resume }}
+      {% endif %}
+      {% if wh.initially_suspended is truthy %}
+      initially_suspended: {{ wh.initially_suspended }}
+      {% endif %}
+      {% if wh.statement_queued_timeout_in_seconds is truthy %}
+      statement_queued_timeout_in_seconds: {{ wh.statement_queued_timeout_in_seconds }}
+      {% endif %}
+      {% if wh.statement_timeout_in_seconds is truthy %}
+      statement_timeout_in_seconds: {{ wh.statement_timeout_in_seconds }}
+      {% endif %}
+      {% if wh.comment is truthy %}
+      comment: "{{ wh.comment }}"
+      {% endif %}
+      {% if wh.resource_monitor is truthy %}
+      resource_monitor: {{ wh.resource_monitor }}
+      {% endif %}
+    {% endfor %}
+{% endif %}

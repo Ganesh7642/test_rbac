@@ -1,0 +1,51 @@
+users:
+  - name: {{ user_name }}
+    alterableOnly: {{alterableOnly | default(false)}}
+    properties:
+      {% if user_type is truthy %}
+      type: {{ user_type }}
+      {% endif %}
+
+      {% if login_name is truthy %}
+      login_name: {{ login_name }}
+      {% endif %}
+
+      {% if display_name is truthy %}
+      display_name: {{ display_name }}
+      {% endif %}
+
+      {% if comment is truthy %}
+      comment: "{{ comment }}"
+      {% endif %}
+
+      {% if disabled is not none %}
+      disabled: {{ disabled | default(false) }}
+      {% endif %}
+
+      {% if default_warehouse is truthy %}
+      default_warehouse: {{ default_warehouse }}
+      {% endif %}
+
+      {% if default_role is truthy %}
+      default_role: {{ default_role }}
+      {% endif %}
+
+      {% if default_secondary_roles is truthy %}
+      default_secondary_roles: {{ default_secondary_roles }}
+      {% endif %}
+
+      {% if rsa_public_key is truthy %}
+      rsa_public_key: "{{ rsa_public_key }}"
+      {% endif %}
+
+      {% if rsa_public_key_2 is truthy %}
+      rsa_public_key_2: "{{ rsa_public_key_2 }}"
+      {% endif %}
+
+      {% if rsa_public_key_fp is truthy %}
+      rsa_public_key_fp: "{{ rsa_public_key_fp }}"
+      {% endif %}
+
+      {% if rsa_public_key_2_fp is truthy %}
+      rsa_public_key_2_fp: "{{ rsa_public_key_2_fp }}"
+      {% endif %}

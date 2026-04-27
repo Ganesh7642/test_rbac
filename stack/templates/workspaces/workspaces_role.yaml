@@ -1,0 +1,116 @@
+databaseRoles:
+  {% if dbRoles is truthy %}
+  {% for role in dbRoles %}
+  - database: {{ db }}
+    name: {{ role.name }}
+    owner: SYSADMIN
+    destroy: {{ role.destroy | default(false) }}
+  {% endfor %}
+  {% endif %}
+
+  {% if schemaRoles is truthy %}
+  {% for role in schemaRoles %}
+  - database: {{ db }}
+    name: {{ role.name }}
+    owner: SYSADMIN
+    destroy: {{ role.destroy | default(false) }}
+  {% endfor %}
+  {% endif %}
+
+{% macro normalize_on_type(value) -%}
+{{ (value | default('') | replace('_', ' ') | upper) }}
+{%- endmacro %}
+
+simpleGrants:
+  {% if dbRoles is truthy %}
+  {% for role in dbRoles %}
+  {% if role.grants is truthy %}
+  {% for grant in role.grants %}
+  - privilege: {{ grant.privilege }}
+    objectType: DATABASE
+    objectName: {{ db }}
+    # For Database Roles, we use the <db>.<role> format here
+    roleName: {{ db }}.{{ role.name }}
+    roleType: database
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {% if schemaRoles is truthy %}
+  {% for role in schemaRoles %}
+  {% if role.grants is truthy %}
+  {% for grant in role.grants %}
+  {% if grant.schemas is truthy %}
+  {% for schema_name in grant.schemas %}
+  - privilege: {{ grant.privilege }}
+    objectType: {{ grant.objectType | default('schema') | upper }}
+    objectName: {{ db }}.{{ schema_name }}
+    roleName: {{ db }}.{{ role.name }}
+    roleType: database
+  {% endfor %}
+  {% else %}
+  - privilege: {{ grant.privilege }}
+    objectType: {{ grant.objectType | default('schema') | upper }}
+    objectName: {{ db }}.{{ schema }}
+    roleName: {{ db }}.{{ role.name }}
+    roleType: database
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+allObjectGrants:
+  {% if schemaRoles is truthy %}
+  {% for role in schemaRoles %}
+  {% if role.allObjectGrants is truthy %}
+  {% for grant in role.allObjectGrants %}
+  {% if grant.schemas is truthy %}
+  {% for schema_name in grant.schemas %}
+  - privilege: {{ grant.privilege }}
+    objectType: SCHEMA
+    objectName: {{ db }}.{{ schema_name }}
+    allType: {{ normalize_on_type(grant.allType | default(grant.onType)) }}
+    roleName: {{ db }}.{{ role.name }}
+    roleType: database
+  {% endfor %}
+  {% else %}
+  - privilege: {{ grant.privilege }}
+    objectType: SCHEMA
+    objectName: {{ db }}.{{ schema }}
+    allType: {{ normalize_on_type(grant.allType | default(grant.onType)) }}
+    roleName: {{ db }}.{{ role.name }}
+    roleType: database
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+futureGrants:
+  {% if schemaRoles is truthy %}
+  {% for role in schemaRoles %}
+  {% if role.futureGrants is truthy %}
+  {% for grant in role.futureGrants %}
+  {% if grant.schemas is truthy %}
+  {% for schema_name in grant.schemas %}
+  - privilege: {{ grant.privilege }}
+    objectType: SCHEMA
+    objectName: {{ db }}.{{ schema_name }}
+    onType: {{ normalize_on_type(grant.onType | default(grant.allType)) }}
+    roleName: {{ db }}.{{ role.name }}
+    roleType: database
+  {% endfor %}
+  {% else %}
+  - privilege: {{ grant.privilege }}
+    objectType: SCHEMA
+    objectName: {{ db }}.{{ schema }}
+    onType: {{ normalize_on_type(grant.onType | default(grant.allType)) }}
+    roleName: {{ db }}.{{ role.name }}
+    roleType: database
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
