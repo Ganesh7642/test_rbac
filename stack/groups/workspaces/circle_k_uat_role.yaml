@@ -16,152 +16,152 @@ template:
 #   onType: FILE FORMAT
 #   privilege: ['usage']
 
-entries: []
+entries:
   # # preserved in the CIRCLE_K_UAT database role namespace.
-  # - db: CIRCLE_K_UAT
-  #   schemaRoles:
-  #     - name: DR_CIRCLE_K_BLUE_RW
-  #       destroy: false
-  #       grants:
-  #         - schemas: [DBT_EVALUATOR]
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR]
-  #           privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
-  #       allObjectGrants:
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: TABLE
-  #           privilege: ['select']
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: TABLE
-  #           privilege: ['insert', 'update', 'delete']
-  #       futureGrants:
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: TABLE
-  #           privilege: ['select', 'insert', 'update', 'delete']
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
+  - db: CIRCLE_K_UAT
+    schemaRoles:
+      - name: DR_CIRCLE_K_BLUE_RW
+        destroy: false
+        grants:
+          - schemas: [DBT_EVALUATOR]
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR]
+            privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
+        allObjectGrants:
+          - schemas: [DBT_EVALUATOR]
+            onType: TABLE
+            privilege: ['select']
+          - schemas: [DBT_EVALUATOR]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DBT_EVALUATOR]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR]
+            onType: FUNCTION
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR]
+            onType: TABLE
+            privilege: ['insert', 'update', 'delete']
+        futureGrants:
+          - schemas: [DBT_EVALUATOR]
+            onType: TABLE
+            privilege: ['select', 'insert', 'update', 'delete']
+          - schemas: [DBT_EVALUATOR]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DBT_EVALUATOR]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR]
+            onType: FUNCTION
+            privilege: ['usage']
 
-  #     - name: DR_CIRCLE_K_BLUE_UAT_RW
-  #       destroy: false
-  #       grants:
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           privilege: ['usage']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
-  #       allObjectGrants:
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['select']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['insert', 'update', 'delete']
-  #       futureGrants:
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['select', 'insert', 'update', 'delete']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
+      - name: DR_CIRCLE_K_BLUE_UAT_RW
+        destroy: false
+        grants:
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            privilege: ['usage']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
+        allObjectGrants:
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['select']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: FUNCTION
+            privilege: ['usage']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['insert', 'update', 'delete']
+        futureGrants:
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['select', 'insert', 'update', 'delete']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: FUNCTION
+            privilege: ['usage']
 
-  #     - name: DR_CIRCLE_K_UAT_RW
-  #       destroy: false
-  #       grants:
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
-  #       allObjectGrants:
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['select']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['insert', 'update', 'delete']
-  #       futureGrants:
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['select']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
-  #         - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['insert', 'update', 'delete']
+      - name: DR_CIRCLE_K_UAT_RW
+        destroy: false
+        grants:
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
+        allObjectGrants:
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['select']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: FUNCTION
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['insert', 'update', 'delete']
+        futureGrants:
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['select']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: FUNCTION
+            privilege: ['usage']
+          - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['insert', 'update', 'delete']
 
-  #     - name: DR_GEMINI_ENT_VALIDATOR_RO
-  #       destroy: false
-  #       grants:
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           privilege: ['usage']
-  #       allObjectGrants:
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['select']
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
-  #       futureGrants:
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: TABLE
-  #           privilege: ['select']
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: VIEW
-  #           privilege: ['select']
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: PROCEDURE
-  #           privilege: ['usage']
-  #         - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
-  #           onType: FUNCTION
-  #           privilege: ['usage']
+      - name: DR_GEMINI_ENT_VALIDATOR_RO
+        destroy: false
+        grants:
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            privilege: ['usage']
+        allObjectGrants:
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['select']
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: FUNCTION
+            privilege: ['usage']
+        futureGrants:
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: TABLE
+            privilege: ['select']
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: VIEW
+            privilege: ['select']
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: PROCEDURE
+            privilege: ['usage']
+          - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
+            onType: FUNCTION
+            privilege: ['usage']
