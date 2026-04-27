@@ -2,14 +2,14 @@ name: Provision
 
 on:
   push:
-    branches: [ main, Feature/* ]
+    branches: [ Master, Feature/* ]
   pull_request:
-    branches: [ main ]
+    branches: [ Master ]
 
 jobs:
-  # 1) Dry run on PRs and on non-main pushes (feature branches)
+  # 1) Dry run on PRs and on non-Master pushes (feature branches)
   dryrun:
-    if: github.event_name == 'pull_request' || github.ref != 'refs/heads/main'
+    if: github.event_name == 'pull_request' || github.ref != 'refs/heads/Master'
     runs-on: ubuntu-latest
     env:
       TOOLKIT_AUTH_TOKEN: ${{ secrets.TOOLKIT_AUTH_TOKEN }}
@@ -44,9 +44,9 @@ jobs:
       - name: Toolkit dry run
         run: ./toolkit provision apply --plan
 
-  # 2) Real apply after merge to main
+  # 2) Real apply after merge to Master
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/Master'
     runs-on: ubuntu-latest
     env:
       TOOLKIT_AUTH_TOKEN: ${{ secrets.TOOLKIT_AUTH_TOKEN }}
