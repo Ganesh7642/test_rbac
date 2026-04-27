@@ -2,7 +2,7 @@ name: Provision
 
 on:
   push:
-    branches: [ main, Feature/* ]
+    branches: [ main, feature/* ]
   pull_request:
     branches: [ main ]
 
@@ -29,8 +29,7 @@ jobs:
 
       - name: Install Toolkit CLI
         run: |
-          TOOLKIT_VERSION=$(cat PROV_VERSION)
-          curl --fail -o toolkit-cli.zip "https://repo.phdata.io/3BCJzuXgtfTCoa6c/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${TOOLKIT_VERSION}/toolkit-cli-${TOOLKIT_VERSION}.zip"
+          curl --fail -o toolkit-cli.zip "https://repo.phdata.io/3BCJzuXgtfTCoa6c/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/0.90.0/toolkit-cli-0.90.0.zip"
           unzip -jd . toolkit-cli.zip
           chmod +x toolkit
 
@@ -65,18 +64,9 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-     - name: Install Toolkit CLI
-       run: |
-          set -euo pipefail
-
-    # Strip CR/LF and spaces from the version file
-          TOOLKIT_VERSION="$(tr -d '\r\n ' < PROV_VERSION)"
-          echo "Using TOOLKIT_VERSION='${TOOLKIT_VERSION}'"
-
-          URL="https://repo.phdata.io/3BCJzuXgtfTCoa6c/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${TOOLKIT_VERSION}/toolkit-cli-${TOOLKIT_VERSION}.zip"
-          echo "Downloading from: ${URL}"
-
-          curl --fail -o toolkit-cli.zip "${URL}"
+      - name: Install Toolkit CLI
+        run: |
+          curl --fail -o toolkit-cli.zip "https://repo.phdata.io/3BCJzuXgtfTCoa6c/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/0.90.0/toolkit-cli-0.90.0.zip"
           unzip -jd . toolkit-cli.zip
           chmod +x toolkit
 
