@@ -5,7 +5,7 @@ template:
   path: functional_role_membership.yaml
 
 entries:
-  # - functional_role: FR_PROVISION_APP_TEST
+   - functional_role: FR_PROVISION_APP_TEST
     # Roles granted into FR_PROVISION_APP_TEST
     granted_roles:
       - name: OBJ_DB_DEVELOPMENT_USE_TEST
@@ -14,7 +14,7 @@ entries:
     warehouse_roles:
       - name: CR_DBT_PROVISION_APP_TEST
 
-  # - functional_role: FR_GEMINI_ENT_DEVELOPER
+   - functional_role: FR_GEMINI_ENT_DEVELOPER
     granted_roles:
       - name: OPIS_BLUE_DEV.DR_OPIS_BLUE_DEV_RW
       - name: OPIS_BLUE_UAT.DR_OPIS_BLUE_DEV_RW
@@ -23,7 +23,7 @@ entries:
     warehouse_roles:
       - name: CR_GEMINI_ENT_DEVELOPER
 
-  # - functional_role: FR_GEMINI_ENT_DBT
+   - functional_role: FR_GEMINI_ENT_DBT
     granted_roles:
       - name: OPIS_BLUE_UAT.DR_OPIS_BLUE_UAT_RW
       - name: CIRCLE_K_UAT.DR_CIRCLE_K_BLUE_RW
@@ -31,7 +31,7 @@ entries:
     warehouse_roles:
       - name: CR_GEMINI_ENT_DBT
 
-  # - functional_role: FR_GEMINI_ENT_VALIDATOR
+   - functional_role: FR_GEMINI_ENT_VALIDATOR
     granted_roles:
       - name: OPIS_BLUE_UAT.DR_GEMINI_ENT_VALIDATOR_RO
       - name: CIRCLE_K_UAT.DR_GEMINI_ENT_VALIDATOR_RO
