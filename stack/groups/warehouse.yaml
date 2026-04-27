@@ -1,0 +1,81 @@
+template:
+  path: warehouse.yaml
+
+entries:
+  - role_name: CR_GEMINI_ENT_DEVELOPER
+    comment: Gemini Enterprise developer compute role
+    warehouses:
+      - wh_name: GEMINI_ENT_DEVELOPER_DEV
+        wh_type: STANDARD
+        wh_size: XSMALL
+        auto_suspend: 60
+        auto_resume: true
+        initially_suspended: true
+        resource_monitor: GEMINI_ENT_DEVELOPER_DEV_MONITOR
+        comment: Warehouse for Gemini DEV developer workload
+        privileges:
+          - name: USAGE
+      - wh_name: GEMINI_ENT_DEVELOPER_UAT
+        wh_type: STANDARD
+        wh_size: XSMALL
+        auto_suspend: 60
+        auto_resume: true
+        initially_suspended: true
+        resource_monitor: GEMINI_ENT_DEVELOPER_UAT_MONITOR
+        comment: Warehouse for Gemini UAT developer workload
+        privileges:
+          - name: USAGE
+
+  - role_name: CR_GEMINI_ENT_DBT
+    comment: Gemini Enterprise dbt compute role
+    warehouses:
+      - wh_name: GEMINI_ENT_DBT_UAT
+        wh_type: STANDARD
+        wh_size: XSMALL
+        auto_suspend: 60
+        auto_resume: true
+        initially_suspended: true
+        resource_monitor: GEMINI_ENT_DBT_UAT_MONITOR
+        comment: Warehouse for Gemini UAT dbt workload
+        privileges:
+          - name: USAGE
+
+  - role_name: CR_GEMINI_ENT_VALIDATOR
+    comment: Gemini Enterprise validator compute role
+    warehouses:
+      - wh_name: GEMINI_ENT_VALIDATOR_UAT
+        wh_type: STANDARD
+        wh_size: XSMALL
+        auto_suspend: 60
+        auto_resume: true
+        initially_suspended: true
+        resource_monitor: GEMINI_ENT_VALIDATOR_UAT_MONITOR
+        comment: Warehouse for Gemini UAT validator workload
+        privileges:
+          - name: USAGE
+
+  - role_name: CR_DBT_PROVISION_APP_TEST
+    warehouses:
+      - wh_name: DBT_PROVISION_APP_WH_TEST
+        wh_type: STANDARD
+        auto_resume: true
+        initially_suspended: true
+        statement_queued_timeout_in_seconds: 0
+        statement_timeout_in_seconds: 0
+        resource_monitor: DBT_PROVISION_APP_WH_MONITOR_TEST
+        comment: Warehouse for dbt provisioning workload
+        privileges:
+          - name: USAGE
+
+  - role_name: CR_TRUST_CENTER
+    warehouses:
+      - wh_name: TRUST_CENTER_WH
+        wh_type: STANDARD
+        auto_resume: true
+        initially_suspended: true
+        statement_queued_timeout_in_seconds: 0
+        statement_timeout_in_seconds: 0
+        resource_monitor: TRUST_CENTER_RM
+        comment: Warehouse for trust center workload
+        privileges:
+          - name: USAGE

@@ -1,0 +1,12 @@
+template:
+  path: functional_role_user_membership.yaml
+
+entries:
+  - functional_role: FR_GEMINI_ENT_DEVELOPER
+    user_name: SVC_UAT_GEMINI_ENT_DEVELOPER
+
+  - functional_role: FR_GEMINI_ENT_VALIDATOR
+    user_name: SVC_UAT_GEMINI_ENT_VALIDATOR
+
+  - functional_role: FR_PROVISION_APP_TEST
+    user_name: SVC_DBT_PROVISION_APP_TEST

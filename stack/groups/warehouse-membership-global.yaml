@@ -1,0 +1,23 @@
+# Any adhoc role that needs to be added to a warehouse should be added here.
+# This is for any role that is not already being granted to the warehouse via a FR role hierarchy.
+# If the role is already being granted to the warehouse via a role hierarchy, then it does not need to be added here.
+
+template:
+  path: warehouse_membership_global.yaml
+
+entries:
+    - warehouse: TRUST_CENTER_WH
+      role_name: TRUST_CENTER_ADMIN_ROLE
+      privileges:
+        - name: USAGE
+          destroy: false
+        - name: MONITOR
+          destroy: false
+
+    - warehouse: TRUST_CENTER_WH
+      role_name: TRUST_CENTER_VIEWER_ROLE
+      privileges:
+        - name: USAGE
+          destroy: false
+        - name: MONITOR
+          destroy: false

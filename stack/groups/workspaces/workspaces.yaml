@@ -1,0 +1,67 @@
+template:
+  path: workspaces/workspaces.yaml
+
+entries: 
+  # Keep DB/schema provisioning in Terraform.
+  # Uncomment only if workspace DB/schema objects must be managed by Provision Tool.
+  - db: OPIS_BLUE_DEV
+    destroy: false
+    schemas:
+      - name: API_LOGGING
+      - name: DATA_PRODUCTS
+      - name: DBT_EVALUATOR
+      - name: INFORMATION_SCHEMA
+      - name: INTERMEDIATE
+      - name: LANDING
+      - name: LANDING_HISTORICAL
+      - name: PUBLIC
+      - name: REPORTING
+      - name: SEEDS
+      - name: STAGING
+  
+  - db: OPIS_BLUE_UAT
+    destroy: false
+    schemas:
+      - name: API_LOGGING
+      - name: DATA_PRODUCTS
+      - name: DBT_EVALUATOR
+      - name: INFORMATION_SCHEMA
+      - name: INTERMEDIATE
+      - name: LANDING
+      - name: LANDING_HISTORICAL
+      - name: PUBLIC
+      - name: REPORTING
+      - name: SEEDS
+      - name: STAGING
+  
+  - db: CIRCLE_K_DEV
+    destroy: false
+    schemas:
+      - name: DBT_EVALUATOR
+      - name: DSS_DATA_PROFILING
+      - name: DSS_OSCARVIPER
+      - name: INFORMATION_SCHEMA
+      - name: LANDING
+      - name: LANDING_HISTORICAL
+      - name: OUTBOUND
+      - name: PUBLIC
+      - name: REPORTING_CIRCLE_K
+      - name: REPORTING_FUELFACS
+      - name: SEEDS
+      - name: STAGING
+  
+  - db: CIRCLE_K_UAT
+    destroy: false
+    schemas:
+      - name: DBT_EVALUATOR
+      - name: DSS_DATA_PROFILING
+      - name: DSS_OSCARVIPER
+      - name: INFORMATION_SCHEMA
+      - name: LANDING
+      - name: LANDING_HISTORICAL
+      - name: OUTBOUND
+      - name: PUBLIC
+      - name: REPORTING_CIRCLE_K
+      - name: REPORTING_FUELFACS
+      - name: SEEDS
+      - name: STAGING

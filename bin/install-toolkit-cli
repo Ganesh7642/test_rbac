@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DEFAULT_VERSION=$(cat PROV_VERSION)
+
+PROV_VERSION=${VERSION:-$DEFAULT_VERSION}
+
+echo "Using PROV_VERSION: $PROV_VERSION"
+path=https://repo.phdata.io/$TRAM_ACCOUNT_TOKEN/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/$PROV_VERSION/toolkit-cli-$PROV_VERSION.zip
+
+echo "Using path: $path"
+
+curl --fail --output toolkit-cli.zip "$path"
+unzip -jd toolkit-cli toolkit-cli.zip

@@ -1,0 +1,10 @@
+# Warehouse membership only supports USAGE — no privilege selection needed.
+simpleGrants:
+  {% for p in privileges %}
+  - objectType: warehouse
+    objectName: {{ warehouse }}
+    roleName: {{ role_name }}
+    privilege: {{ p.name }}
+    destroy: {{ p.destroy | default(false) }}
+  {% endfor %}
+

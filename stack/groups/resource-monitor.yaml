@@ -1,0 +1,63 @@
+template:
+  path: resource_monitor.yaml
+
+entries:
+  - name: GEMINI_ENT_DEVELOPER_DEV_MONITOR
+    frequency: MONTHLY
+    start_time: IMMEDIATELY
+    comment: Resource monitor for Gemini DEV developer warehouse
+    triggers:
+      - threshold: 75
+        action: NOTIFY
+      - threshold: 100
+        action: NOTIFY
+
+  - name: GEMINI_ENT_DEVELOPER_UAT_MONITOR
+    frequency: MONTHLY
+    start_time: IMMEDIATELY
+    comment: Resource monitor for Gemini UAT developer warehouse
+    triggers:
+      - threshold: 75
+        action: NOTIFY
+      - threshold: 100
+        action: NOTIFY
+
+  - name: GEMINI_ENT_DBT_UAT_MONITOR
+    frequency: MONTHLY
+    start_time: IMMEDIATELY
+    comment: Resource monitor for Gemini UAT dbt warehouse
+    triggers:
+      - threshold: 75
+        action: NOTIFY
+      - threshold: 100
+        action: NOTIFY
+
+  - name: GEMINI_ENT_VALIDATOR_UAT_MONITOR
+    frequency: MONTHLY
+    start_time: IMMEDIATELY
+    comment: Resource monitor for Gemini UAT validator warehouse
+    triggers:
+      - threshold: 75
+        action: NOTIFY
+      - threshold: 100
+        action: NOTIFY
+
+  - name: DBT_PROVISION_APP_WH_MONITOR_TEST
+    frequency: MONTHLY
+    start_time: IMMEDIATELY
+    comment: Resource monitor for dbt provisioning_test warehouse
+    triggers:
+      - threshold: 75
+        action: NOTIFY
+      - threshold: 100
+        action: NOTIFY
+
+  - name: TRUST_CENTER_RM
+    frequency: MONTHLY
+    start_time: IMMEDIATELY
+    comment: Resource monitor for trust center warehouse
+    triggers:
+        - threshold: 75
+          action: NOTIFY
+        - threshold: 100
+          action: NOTIFY

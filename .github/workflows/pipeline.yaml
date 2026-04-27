@@ -1,0 +1,81 @@
+name: Provision
+
+on:
+  push:
+    branches: [ main, Feature/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # 1) Dry run on PRs and on non-main pushes (feature branches)
+  dryrun:
+    if: github.event_name == 'pull_request' || github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      TOOLKIT_AUTH_TOKEN: ${{ secrets.TOOLKIT_AUTH_TOKEN }}
+      SNOWFLAKE_USER: ${{ vars.SNOWFLAKE_USER }}
+      SNOWFLAKE_ROLE: ${{ vars.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_WAREHOUSE: ${{ vars.SNOWFLAKE_WAREHOUSE }}
+      SNOWFLAKE_PRIVATE_KEY_PASSPHRASE: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install Toolkit CLI
+        run: |
+          curl --fail -o toolkit-cli.zip "https://repo.phdata.io/3BCJzuXgtfTCoa6c/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/0.90.0/toolkit-cli-0.90.0.zip"
+          unzip -jd . toolkit-cli.zip
+          chmod +x toolkit
+
+      - name: Reconstruct Snowflake private key
+        env:
+          PRIVATE_KEY_B64: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_FILE }}
+        run: |
+          umask 077
+          echo "$PRIVATE_KEY_B64" | base64 --decode > trial_provision_key.p8
+          echo "SNOWFLAKE_PRIVATE_KEY_FILE=trial_provision_key.p8" >> $GITHUB_ENV
+
+      - name: Toolkit dry run
+        run: ./toolkit provision apply --plan
+
+  # 2) Real apply after merge to main
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      TOOLKIT_AUTH_TOKEN: ${{ secrets.TOOLKIT_AUTH_TOKEN }}
+      SNOWFLAKE_USER: ${{ vars.SNOWFLAKE_USER }}
+      SNOWFLAKE_ROLE: ${{ vars.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_WAREHOUSE: ${{ vars.SNOWFLAKE_WAREHOUSE }}
+      SNOWFLAKE_PRIVATE_KEY_PASSPHRASE: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install Toolkit CLI
+        run: |
+          curl --fail -o toolkit-cli.zip "https://repo.phdata.io/3BCJzuXgtfTCoa6c/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/0.90.0/toolkit-cli-0.90.0.zip"
+          unzip -jd . toolkit-cli.zip
+          chmod +x toolkit
+
+      - name: Reconstruct Snowflake private key
+        env:
+          PRIVATE_KEY_B64: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_FILE }}
+        run: |
+          umask 077
+          echo "$PRIVATE_KEY_B64" | base64 --decode > trial_provision_key.p8
+          echo "SNOWFLAKE_PRIVATE_KEY_FILE=trial_provision_key.p8" >> $GITHUB_ENV
+      - name: Toolkit apply (real deploy)
+        run: ./toolkit provision apply

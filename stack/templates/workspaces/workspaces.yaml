@@ -1,0 +1,14 @@
+databases:
+  - name: {{ db }}
+    owner: SYSADMIN
+    destroy: {{ destroy | default(false) }}
+
+schemas:
+  {% if schemas is truthy %}
+  {% for schema in schemas %}
+  - database: {{ db }}
+    name: {{ schema.name }}
+    owner: SYSADMIN
+    destroy: {{ destroy | default(false) }}
+  {% endfor %}
+  {% endif %}

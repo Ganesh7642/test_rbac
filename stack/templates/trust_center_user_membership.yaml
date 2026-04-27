@@ -1,0 +1,4 @@
+roleGrants:
+  - name: {{ trust_center_role }}
+    toUsers:
+      - {{ user_name }}

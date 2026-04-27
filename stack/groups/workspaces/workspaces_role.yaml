@@ -1,0 +1,9 @@
+template:
+  path: workspaces/workspaces_role.yaml
+
+entries: 
+# Database role group entries are split by database for schema-level control:
+# - opis_blue_dev_role.yaml
+# - opis_blue_uat_role.yaml
+# - circle_k_dev_role.yaml
+# - circle_k_uat_role.yaml

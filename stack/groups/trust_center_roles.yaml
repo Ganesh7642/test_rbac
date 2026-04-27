@@ -1,0 +1,9 @@
+template:
+  path: trust_center_roles.yaml
+
+entries:
+  - role_name: TRUST_CENTER_ADMIN_ROLE
+    trust_center_app_role: SNOWFLAKE.TRUST_CENTER_ADMIN
+
+  - role_name: TRUST_CENTER_VIEWER_ROLE
+    trust_center_app_role: SNOWFLAKE.TRUST_CENTER_VIEWER

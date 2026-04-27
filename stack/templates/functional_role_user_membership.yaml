@@ -1,0 +1,4 @@
+roleGrants:
+  - name: {{ functional_role }}
+    toUsers:
+      - {{ user_name }}
