@@ -16,115 +16,115 @@ template:
 #   onType: FILE FORMAT
 #   privilege: ['usage']
 
-entries:
-  # This is preserved exactly inside the UAT database role namespace.
-  - db: OPIS_BLUE_UAT
-    schemaRoles:
-      - name: DR_OPIS_BLUE_UAT_RW
-        destroy: false
-        grants:
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
-        allObjectGrants:
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['select']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: VIEW
-            privilege: ['select']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: FUNCTION
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['insert', 'update', 'delete']
-        futureGrants:
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['select', 'insert', 'update', 'delete']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: VIEW
-            privilege: ['select']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: FUNCTION
-            privilege: ['usage']
+entries: []
+  # # This is preserved exactly inside the UAT database role namespace.
+  # - db: OPIS_BLUE_UAT
+  #   schemaRoles:
+  #     - name: DR_OPIS_BLUE_UAT_RW
+  #       destroy: false
+  #       grants:
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
+  #       allObjectGrants:
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['select']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: VIEW
+  #           privilege: ['select']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: PROCEDURE
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: FUNCTION
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['insert', 'update', 'delete']
+  #       futureGrants:
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['select', 'insert', 'update', 'delete']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: VIEW
+  #           privilege: ['select']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: PROCEDURE
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: FUNCTION
+  #           privilege: ['usage']
 
-      - name: DR_OPIS_BLUE_DEV_RW
-        destroy: false
-        grants:
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
-        allObjectGrants:
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['select']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: VIEW
-            privilege: ['select']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: FUNCTION
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['insert', 'update', 'delete']
-        futureGrants:
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['select']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: VIEW
-            privilege: ['select']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
-            onType: FUNCTION
-            privilege: ['usage']
-          - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['insert', 'update', 'delete']
+  #     - name: DR_OPIS_BLUE_DEV_RW
+  #       destroy: false
+  #       grants:
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           privilege: ['create table', 'create view', 'create stage', 'create file format', 'create sequence', 'create procedure', 'create function']
+  #       allObjectGrants:
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['select']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: VIEW
+  #           privilege: ['select']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: PROCEDURE
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: FUNCTION
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['insert', 'update', 'delete']
+  #       futureGrants:
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['select']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: VIEW
+  #           privilege: ['select']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: PROCEDURE
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
+  #           onType: FUNCTION
+  #           privilege: ['usage']
+  #         - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['insert', 'update', 'delete']
 
-      - name: DR_GEMINI_ENT_VALIDATOR_RO
-        destroy: false
-        grants:
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            privilege: ['usage']
-        allObjectGrants:
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['select']
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: VIEW
-            privilege: ['select']
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: FUNCTION
-            privilege: ['usage']
-        futureGrants:
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: TABLE
-            privilege: ['select']
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: VIEW
-            privilege: ['select']
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
-            onType: FUNCTION
-            privilege: ['usage']
+  #     - name: DR_GEMINI_ENT_VALIDATOR_RO
+  #       destroy: false
+  #       grants:
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           privilege: ['usage']
+  #       allObjectGrants:
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['select']
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: VIEW
+  #           privilege: ['select']
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: PROCEDURE
+  #           privilege: ['usage']
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: FUNCTION
+  #           privilege: ['usage']
+  #       futureGrants:
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: TABLE
+  #           privilege: ['select']
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: VIEW
+  #           privilege: ['select']
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: PROCEDURE
+  #           privilege: ['usage']
+  #         - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
+  #           onType: FUNCTION
+  #           privilege: ['usage']
