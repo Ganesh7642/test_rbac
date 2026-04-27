@@ -1,9 +1,7 @@
 template:
   path: workspaces/workspaces.yaml
- path: workspaces/workspaces.yaml
-entries: 
-  # Keep DB/schema provisioning in Terraform.
-  # Uncomment only if workspace DB/schema objects must be managed by Provision Tool.
+
+entries:
   - db: OPIS_BLUE_DEV
     destroy: false
     schemas:
@@ -18,7 +16,7 @@ entries:
       - name: REPORTING
       - name: SEEDS
       - name: STAGING
-  
+
   - db: OPIS_BLUE_UAT
     destroy: false
     schemas:
@@ -33,7 +31,7 @@ entries:
       - name: REPORTING
       - name: SEEDS
       - name: STAGING
-  
+
   - db: CIRCLE_K_DEV
     destroy: false
     schemas:
@@ -49,7 +47,7 @@ entries:
       - name: REPORTING_FUELFACS
       - name: SEEDS
       - name: STAGING
-  
+
   - db: CIRCLE_K_UAT
     destroy: false
     schemas:
