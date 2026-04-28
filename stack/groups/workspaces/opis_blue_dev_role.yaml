@@ -21,7 +21,7 @@ entries:
   - db: OPIS_BLUE_DEV
     schemaRoles:
       - name: DR_OPIS_BLUE_DEV_RW
-        destroy: false
+        destroy: true
         grants:
           - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
             privilege: ['usage']

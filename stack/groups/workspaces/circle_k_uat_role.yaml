@@ -21,7 +21,7 @@ entries:
   - db: CIRCLE_K_UAT
     schemaRoles:
       - name: DR_CIRCLE_K_BLUE_RW
-        destroy: false
+        destroy: true
         grants:
           - schemas: [DBT_EVALUATOR]
             privilege: ['usage']
@@ -58,7 +58,7 @@ entries:
             privilege: ['usage']
 
       - name: DR_CIRCLE_K_BLUE_UAT_RW
-        destroy: false
+        destroy: true
         grants:
           - schemas: [DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
             privilege: ['usage']
@@ -95,7 +95,7 @@ entries:
             privilege: ['usage']
 
       - name: DR_CIRCLE_K_UAT_RW
-        destroy: false
+        destroy: true
         grants:
           - schemas: [DBT_EVALUATOR, DSS_DATA_PROFILING, DSS_OSCARVIPER, INFORMATION_SCHEMA, LANDING, LANDING_HISTORICAL, OUTBOUND, PUBLIC, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
             privilege: ['usage']
@@ -135,7 +135,7 @@ entries:
             privilege: ['insert', 'update', 'delete']
 
       - name: DR_GEMINI_ENT_VALIDATOR_RO
-        destroy: false
+        destroy: true
         grants:
           - schemas: [DSS_DATA_PROFILING, LANDING, LANDING_HISTORICAL, OUTBOUND, REPORTING_CIRCLE_K, REPORTING_FUELFACS, SEEDS, STAGING]
             privilege: ['usage']
