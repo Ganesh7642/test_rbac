@@ -3,7 +3,7 @@ template:
 
 entries:
   - db: OPIS_BLUE_DEV
-    destroy: true
+    destroy: false
     schemas:
       - name: API_LOGGING
       - name: DATA_PRODUCTS
@@ -18,7 +18,7 @@ entries:
       - name: STAGING
 
   - db: OPIS_BLUE_UAT
-    destroy: true
+    destroy: false
     schemas:
       - name: API_LOGGING
       - name: DATA_PRODUCTS
@@ -33,7 +33,7 @@ entries:
       - name: STAGING
 
   - db: CIRCLE_K_DEV
-    destroy: true
+    destroy: false
     schemas:
       - name: DBT_EVALUATOR
       - name: DSS_DATA_PROFILING
@@ -49,7 +49,7 @@ entries:
       - name: STAGING
 
   - db: CIRCLE_K_UAT
-    destroy: true
+    destroy: false
     schemas:
       - name: DBT_EVALUATOR
       - name: DSS_DATA_PROFILING
