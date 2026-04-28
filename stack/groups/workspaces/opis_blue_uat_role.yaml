@@ -21,7 +21,7 @@ entries:
   - db: OPIS_BLUE_UAT
     schemaRoles:
       - name: DR_OPIS_BLUE_UAT_RW
-        destroy: false
+        destroy: true
         grants:
           - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
             privilege: ['usage']
@@ -58,7 +58,7 @@ entries:
             privilege: ['usage']
 
       - name: DR_OPIS_BLUE_DEV_RW
-        destroy: false
+        destroy: true
         grants:
           - schemas: [API_LOGGING, DATA_PRODUCTS, DBT_EVALUATOR, INFORMATION_SCHEMA, INTERMEDIATE, LANDING, LANDING_HISTORICAL, PUBLIC, REPORTING, SEEDS, STAGING]
             privilege: ['usage']
@@ -98,7 +98,7 @@ entries:
             privilege: ['insert', 'update', 'delete']
 
       - name: DR_GEMINI_ENT_VALIDATOR_RO
-        destroy: false
+        destroy: true
         grants:
           - schemas: [DATA_PRODUCTS, INTERMEDIATE, LANDING, LANDING_HISTORICAL, REPORTING, SEEDS, STAGING]
             privilege: ['usage']
