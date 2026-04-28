@@ -3,187 +3,46 @@ template:
 
 entries:
   - db: CIRCLE_K_DEV
-    schemaRoles:
+    objectRoles:
       - name: DR_CIRCLE_K_DEV_RW
-        destroy: true
-        grants:
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            privilege: ['usage']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            privilege:
-              - create table
-              - create view
-              - create stage
-              - create file format
-              - create sequence
-              - create procedure
-              - create function
-
-        allObjectGrants:
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: TABLE
-            privilege: ['select']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: VIEW
-            privilege: ['select']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: FUNCTION
-            privilege: ['usage']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: TABLE
-            privilege:
-              - insert
-              - update
-              - delete
-
-        futureGrants:
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: TABLE
-            privilege: ['select']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: VIEW
-            privilege: ['select']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: PROCEDURE
-            privilege: ['usage']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - PUBLIC
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: FUNCTION
-            privilege: ['usage']
-          - schemas:
-              - DBT_EVALUATOR
-              - DSS_DATA_PROFILING
-              - DSS_OSCARVIPER
-              - LANDING
-              - LANDING_HISTORICAL
-              - OUTBOUND
-              - REPORTING_CIRCLE_K
-              - REPORTING_FUELFACS
-              - SEEDS
-              - STAGING
-            onType: TABLE
-            privilege:
-              - insert
-              - update
-              - delete
+        destroy: false
+        database:
+          privileges: []
+          deprovisionPrivileges: []
+        schemas:
+          - name: DEV_DBT_EVALUATOR
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: DEV_DSS_DATA_PROFILING
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: DEV_DSS_OSCARVIPER
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          # - name: INFORMATION_SCHEMA
+          #   privileges: ['SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS']
+          #   futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS']
+          # - name: DEV_LANDING
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: DEV_LANDING_HISTORICAL
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: DEV_OUTBOUND
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: PUBLIC
+            privileges: ['SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS']
+          - name: DEV_REPORTING_CIRCLE_K
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: DEV_REPORTING_FUELFACS
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: DEV_SEEDS
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
+          - name: DEV_STAGING
+            privileges: ['CREATE TABLE', 'CREATE VIEW', 'CREATE STAGE', 'CREATE FILE FORMAT', 'CREATE SEQUENCE', 'CREATE PROCEDURE', 'CREATE FUNCTION', 'SELECT ON ALL TABLES', 'SELECT ON ALL VIEWS', 'USAGE ON ALL PROCEDURES', 'USAGE ON ALL FUNCTIONS', 'INSERT ON ALL TABLES', 'UPDATE ON ALL TABLES', 'DELETE ON ALL TABLES']
+            futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
