@@ -5,7 +5,7 @@ entries:
   - db: OPIS_BLUE_UAT
     objectRoles:
       - name: DR_OPIS_UAT_RW
-        destroy: false
+        destroy: true
         database:
           privileges: []
           deprovisionPrivileges: []

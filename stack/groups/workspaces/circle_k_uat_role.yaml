@@ -5,7 +5,7 @@ entries:
   - db: CIRCLE_K_UAT
     objectRoles:
       - name: DR_CIRCLE_K_BLUE_RW
-        destroy: false
+        destroy: true
         database:
           privileges: []
           deprovisionPrivileges: []
@@ -15,7 +15,7 @@ entries:
             futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
 
       - name: DR_CIRCLE_K_BLUE_UAT_RW
-        destroy: false
+        destroy: true
         database:
           privileges: []
           deprovisionPrivileges: []
@@ -59,7 +59,7 @@ entries:
             futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
 
       - name: DR_CIRCLE_K_UAT_RW
-        destroy: false
+        destroy: true
         database:
           privileges: []
           deprovisionPrivileges: []
@@ -102,7 +102,7 @@ entries:
             futurePrivileges: ['SELECT ON FUTURE TABLES', 'SELECT ON FUTURE VIEWS', 'USAGE ON FUTURE PROCEDURES', 'USAGE ON FUTURE FUNCTIONS', 'INSERT ON FUTURE TABLES', 'UPDATE ON FUTURE TABLES', 'DELETE ON FUTURE TABLES']
 
       - name: DR_GEMINI_ENT_VALIDATOR_RO
-        destroy: false
+        destroy: tr
         database:
           privileges: []
           deprovisionPrivileges: []
