@@ -5,7 +5,7 @@ entries:
   - db: CIRCLE_K_DEV
     objectRoles:
       - name: DR_CIRCLE_K_DEV_RW
-        destroy: false
+        destroy: true
         database:
           privileges: []
           deprovisionPrivileges: []
